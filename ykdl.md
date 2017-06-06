@@ -1,4 +1,4 @@
-##ykdl 修改文件
+## ykdl 修改文件
 	youku.py
 		61-65
 		urls.append((u['cdn_url'],u['total_milliseconds_video']))
@@ -13,7 +13,7 @@
         for x in s['segs']:
             stream_urls.append((x['url'],x['total_milliseconds_video']))
         size = s['total_size']
-        
+
     bilibili.py
 		24-25
         length=durl.getElementsByTagName('length')[0].firstChild.nodeValue
