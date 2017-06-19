@@ -18,6 +18,7 @@
 		24-25
         length=durl.getElementsByTagName('length')[0].firstChild.nodeValue
         urls.append((durl.getElementsByTagName('url')[0].firstChild.nodeValue,length))
+        
     iqiyi.py
     	84-87
         duration=seg_info['d']
