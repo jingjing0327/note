@@ -45,6 +45,9 @@
         self.shortTitle=shortTitle
         self.url=url
         self.vt=vt
+    -----------------------------
+	use:
+    	item(pic,shortTitle,url,vt)
 	```
 # python2 utf-8
 
