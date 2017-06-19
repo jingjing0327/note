@@ -57,4 +57,7 @@
 	reload(sys)   
 	sys.setdefaultencoding('utf8') 
 	```
-# d
+# JSON
+	```python
+	json.dumps(out_json_str, default=lambda o: o.__dict__, sort_keys=True, indent=4)
+	```
