@@ -47,6 +47,11 @@
         self.vt=vt
 	```
 # python2 utf-8
+
+	```python
+
 	import sys
-reload(sys)   
-sys.setdefaultencoding('utf8') 
+	reload(sys)   
+	sys.setdefaultencoding('utf8') 
+	```
+# d
