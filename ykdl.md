@@ -25,3 +25,13 @@
         str_duration=str(duration)+'000'
         down_url = json_data['l']
         real_urls.append((down_url,duration))
+    acfun.py
+        user_sourceVid=match1(self.url,r'id=([0-9]*)')
+        if(user_sourceVid is None):
+
+            html = get_content(self.url)
+
+            sourceVid = match1(html, "data-vid=\"([a-zA-Z0-9=]+)\" data-(scode|cid)=")
+        else:
+            sourceVid=user_sourceVid
+
