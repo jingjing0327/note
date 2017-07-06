@@ -9,3 +9,14 @@
 
 	mView.setSystemUiVisibility(fullScreenParam);
 	```
+#String encryption
+	```java
+	public static String getEncryption(String para) {
+		int key = 0x10;
+		char[] charArray = para.toCharArray();
+		for (int i = 0; i < charArray.length; i++) {
+			charArray[i] = (char) (charArray[i] ^ key);
+		}
+		return String.valueOf(charArray);
+	}
+	```
