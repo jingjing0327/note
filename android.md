@@ -20,3 +20,6 @@
 		return String.valueOf(charArray);
 	}
 	```
+
+
+	ijkMediaPlayer.setOption(IjkMediaPlayer.OPT_CATEGORY_PLAYER, "soundtouch", 1);
