@@ -23,3 +23,6 @@
 
 
 	ijkMediaPlayer.setOption(IjkMediaPlayer.OPT_CATEGORY_PLAYER, "soundtouch", 1);
+	
+#在截屏的时候
+		xml 中 scrollview 必须加上 android:orientation="vertical" 否则超出屏幕部分会是黑屏。
