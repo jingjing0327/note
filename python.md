@@ -71,3 +71,14 @@
 	```python
 	json.dumps(out_json_str, default=lambda o: o.__dict__, sort_keys=True, indent=4)
 	```
+# install
+	zipimport.ZipImportError: can't decompress data; zlib not available
+	解决方法：
+		1、安装依赖zlib、zlib-devel
+		2、重新编译安装Python
+	
+	./configure 
+	编辑Modules/Setup文件 
+	找到下面这句，去掉注释 
+	#zlib zlibmodule.c -I$(prefix)/include -L$(exec_prefix)/lib -lz 
+	重新编译安装：make & make install 
