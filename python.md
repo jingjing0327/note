@@ -3,6 +3,19 @@
 	```python
 	import codecs
 	aa=codecs.open("gif.txt",'a','utf-8')
+
+	------------------------------------
+	<!-- 乱码解决方法 -->
+	# -*- coding: UTF-8 -*-
+	#!/usr/bin/python
+	f = open("qudao.txt", "rb")
+	strxx='' 
+	for line in f:
+		line= str(line, encoding = "utf-8")
+		strxx+='"'+line.strip('\r\n')+'",'
+	print(strxx) 
+	f.close()  
+
 	```
 # 递归超过最大范围
 	```python
