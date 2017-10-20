@@ -14,20 +14,20 @@
 ### 第3条：用私有构造器或者枚举类强化Singleton属性
 最佳单利的实现方式：
 ```java
-	public enum Elvis{
-		INSTANCE;
+public enum Elvis{
+	INSTANCE;
 
-		public void xxx(String str){
-			 // sout(str)
-		}
-
+	public void xxx(String str){
+		 // sout(str)
 	}
+
+}
 ```
 ### 第4条：通过私有构造器强化不可实例化的能力
 	在new对象的时候，加入可用的代码
 ### 第5条：避免创建不必要的对象
 ```java	
-	String s=new String("test"); //don't do this!
+String s=new String("test"); //don't do this!
 ```
 	要优先使用基本类型而不是装箱基本类型，要当心无意识的自动装箱。
 ### 第6条：消除过期的对象引用
