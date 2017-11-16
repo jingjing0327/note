@@ -95,3 +95,10 @@
 	找到下面这句，去掉注释 
 	#zlib zlibmodule.c -I$(prefix)/include -L$(exec_prefix)/lib -lz 
 	重新编译安装：make & make install 
+
+ps -fA | grep python
+nohup python3 -u app.py > app.log &
+
+# python 头
+	#!/usr/bin/python
+	# -*- coding: UTF-8 -*-
