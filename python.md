@@ -2,8 +2,10 @@
 # open 文件正确打开方式
 	```python
 	import codecs
+	--------
 	aa=codecs.open("gif.txt",'a','utf-8')
-
+	------------------------------------
+	_file=open("city.json",'r',encoding= 'UTF-8')
 	------------------------------------
 	<!-- 乱码解决方法 -->
 	# -*- coding: UTF-8 -*-
@@ -102,3 +104,42 @@ nohup python3 -u app.py > app.log &
 # python 头
 	#!/usr/bin/python
 	# -*- coding: UTF-8 -*-
+
+# flask 启动端口
+	#!/usr/bin/python
+	# -*- coding: UTF-8 -*-
+	from flask import *
+
+
+	app = Flask(__name__)
+
+	@app.route("/")
+	def root():
+	    return "czxy_xxx"
+
+	if __name__ == '__main__':
+	    app.run(host='0.0.0.0')
+	    
+# mysql
+	```python
+	def conn():
+	my_connect=pymysql.connect(host='127.0.0.1',
+							 user='root',
+							 password='asdfg12345',
+							 db='test',
+							 charset='utf8',
+							 cursorclass=pymysql.cursors.DictCursor)
+	my_cursor=my_connect.cursor();
+	my_cursor.execute("select * from `abc`")
+	my_result=my_cursor.fetchall();
+	my_cursor.close()
+	my_connect.close()
+	return my_result	    
+	```
+# 正则表达式
+------------------------
+<.*View\n\s*android:id=\"@\+id/[a-z0-9_]*\"	
+------------------------
+<TextView
+            android:id="@+id/new_update_tip"
+------------------------
