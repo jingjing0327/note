@@ -1,11 +1,11 @@
 ## java
 
 ```java
-Definition for singly-linked list.
-public class ListNode {
-    int val;
-    ListNode next;
-     ListNode(int x) { val = x; }
-}
+//Definition for singly-linked list.
+	public class ListNode {
+	    int val;
+	    ListNode next;
+	     ListNode(int x) { val = x; }
+	}
 ```
 单表链

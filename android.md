@@ -109,3 +109,6 @@
 		return (env)->NewStringUTF("xxx");
 	}
 ```
+
+# rom
+	fastboot flash recovery recovery.img     刷入recovery.img
