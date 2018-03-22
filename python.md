@@ -84,6 +84,15 @@
 	```
 # JSON
 	```python
+	class 直接转成json 报 TypeError: Object of type 'Result' is not JSON serializable
+	需要用lambda表达式转移一下
+	return json.dumps(result,default=lambda obj:obj.__dict__,sort_keys=True,indent=4)
+		lambda obj: obj.__dict__          会将任意的对象，转换成字典的方式
+
+		sort_keys=True                    会按照字典中的键来按照ASCII方式来排序
+
+		indent=4                          会按照键值对以间隔4来直观的显示
+
 	json.dumps(out_json_str, default=lambda o: o.__dict__, sort_keys=True, indent=4)
 	```
 # install
@@ -143,3 +152,27 @@ nohup python3 -u app.py > app.log &
 <TextView
             android:id="@+id/new_update_tip"
 ------------------------
+
+# flash post 获取参数
+		_data=request.get_json();  //get_json()获取前台传过来的json
+		company=Company(**_data)	//json 转成对象
+		
+		// 前台 ajax的正常访问姿势,以json的形式来访问
+		$.ajax({
+			              type:"POST",
+			              url:SERVER_IP+"add_company",
+			              data:JSON.stringify({"company_name":this.company_name,
+			              "company_client_name":this.company_client_name,
+			              "company_phone":this.company_phone,
+			              "cz_name":this.cz_name,
+			              "state":this.state,
+			              "company_info":this.company_info}),
+			              dataType:"json",
+			              contentType: 'application/json;charset=utf-8',
+			              success:function(data){
+			              	console.log("success")
+			              },
+			              error:function () {
+			                console.log("error")
+			              }
+			        	});
