@@ -112,3 +112,8 @@
 
 # rom
 	fastboot flash recovery recovery.img     刷入recovery.img
+	
+# webview 5.0以上不支持http 和https 混编
+	        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            webSettings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
+        }
