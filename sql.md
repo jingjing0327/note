@@ -31,3 +31,10 @@ select server_id from cardserver where game_id = 1 order by CAST(server_id as SI
 也可以使用CONVERT来搞定此问题：
 
 select server_id from cardserver where game_id = 1 order by CONVERT(server_id,SIGNED) desc limit 10
+
+
+UNIX_TIMESTAMP(timestamp) 时间戳的问题
+
+FROM_UNIXTIME(create_time,'%Y-%m-%d %H:%i:%S')
+
+

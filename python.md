@@ -176,3 +176,11 @@ nohup python3 -u app.py > app.log &
 			                console.log("error")
 			              }
 			        	});
+			        	
+# 时间
+		create_time=item['create_time']
+		d = datetime.datetime.fromtimestamp(create_time)  
+		create_time = d.strftime("%Y-%m-%d %H:%M:%S")
+
+# gunicorn 使用守护进程
+		gunicorn -w 4 -b 0.0.0.0:616 dr_app:app &
