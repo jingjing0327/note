@@ -184,3 +184,5 @@ nohup python3 -u app.py > app.log &
 
 # gunicorn 使用守护进程
 		gunicorn -w 4 -b 0.0.0.0:616 dr_app:app &
+
+		nohup python -u test.py > nohup.out 2>&1 &    //-u 无缓冲，直接打印到日志
