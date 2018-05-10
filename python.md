@@ -188,23 +188,26 @@ nohup python3 -u app.py > app.log &
 		nohup python -u test.py > nohup.out 2>&1 &    //-u 无缓冲，直接打印到日志
 
 # 透明图片粘贴
-import Image
+	```python
+	import Image
 
-background = Image.open("test1.png")
-foreground = Image.open("test2.png")
+	background = Image.open("test1.png")
+	foreground = Image.open("test2.png")
 
-background.paste(foreground, (0, 0), foreground)
-background.show()
-
+	background.paste(foreground, (0, 0), foreground)
+	background.show()
+	```
 
 # python 裁剪成圆形
-head = Image.open('head.jpg')
-bigsize = (head.size[0] * 3, head.size[1] * 3)
-mask = Image.new('L', bigsize, 0)
-draw = ImageDraw.Draw(mask) 
-draw.ellipse((0, 0) + bigsize, fill=255)
-mask = mask.resize(head.size, Image.ANTIALIAS)
-head.putalpha(mask)
-head_w_p=(int(x_width/2)-int(head_w/2))
-head_h_p=int(last_h-head_h/2)
-toImage.paste(head,(head_w_p,head_h_p),head)
+	```python
+	head = Image.open('head.jpg')
+	bigsize = (head.size[0] * 3, head.size[1] * 3)
+	mask = Image.new('L', bigsize, 0)
+	draw = ImageDraw.Draw(mask) 
+	draw.ellipse((0, 0) + bigsize, fill=255)
+	mask = mask.resize(head.size, Image.ANTIALIAS)
+	head.putalpha(mask)
+	head_w_p=(int(x_width/2)-int(head_w/2))
+	head_h_p=int(last_h-head_h/2)
+	toImage.paste(head,(head_w_p,head_h_p),head)
+	```
