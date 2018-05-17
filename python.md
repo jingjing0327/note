@@ -207,3 +207,15 @@ nohup python3 -u app.py > app.log &
 	head_w_p=(int(x_width/2)-int(head_w/2))
 	head_h_p=int(last_h-head_h/2)
 	toImage.paste(head,(head_w_p,head_h_p),head)
+# python gunicorn
+
+	gunicorn app:app -c gunicorn.conf
+
+	conf如下：
+		workers = 4
+		bind = '0.0.0.0:616'
+		daemon = True
+		timeout = 120
+		accesslog = 'acess.log'
+		errorlog = 'error.log'
+			
