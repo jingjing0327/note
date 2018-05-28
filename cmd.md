@@ -19,3 +19,5 @@ PS:
 	kill (9)六亲不认的杀掉
 
 	term (15)正常的退出进程
+
+pstree -ap |grep gunicorn   #查看gunicorn的进程列表
