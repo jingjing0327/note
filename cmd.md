@@ -28,3 +28,5 @@ ffmpeg -i success.mp4 -metadata:s:v rotate="90" -codec copy output_success.mp4
 ffmpeg -i test.mp4 -ss 10 -t 15 -codec copy cut.mp4
 
 ffmpeg -i example.avi -vf crop=a:b:c:d  outputfilename
+
+/etc/nginx/sites-enabled 
