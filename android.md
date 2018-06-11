@@ -137,3 +137,11 @@
 
 # adb录制视频
 	adb shell screenrecord /sdcard/demo.mp4
+
+
+# 超级大图，模糊处理
+ImagePipelineConfig config = ImagePipelineConfig.newBuilder(getApplicationContext())
+            .setDownsampleEnabled(true)
+            .build();
+
+Fresco.initialize(getApplicationContext(), config);
