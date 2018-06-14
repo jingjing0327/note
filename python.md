@@ -210,7 +210,7 @@ nohup python3 -u app.py > app.log &
 # python gunicorn
 
 	gunicorn app:app -c gunicorn.conf
-
+	gunicorn app668:app -c gunicorn.conf
 	conf如下：
 		workers = 4
 		bind = '0.0.0.0:616'
