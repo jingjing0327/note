@@ -6,6 +6,8 @@ scp app-release.apk root@115.28.66.229:/root
 
 netstat -an | grep 3306 #查看端口
 
+netstat -tunlp|grep 端口号
+
 tail -f LivePlaybackSplit.log 
 
 find / -name 'nginx'
@@ -30,3 +32,9 @@ ffmpeg -i test.mp4 -ss 10 -t 15 -codec copy cut.mp4
 ffmpeg -i example.avi -vf crop=a:b:c:d  outputfilename
 
 /etc/nginx/sites-enabled 
+
+
+vim /etc/profile
+export ANDROID_NDK=/root/android/android-ndk-r11c
+export PATH=${PATH}:$NDK
+source /etc/profile
