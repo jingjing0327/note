@@ -31,6 +31,9 @@
 
 计算模型：
 		Data Structure +Algorithm     DSA
+		
+		空间复杂度S(n)：占用存储空间的大小
+		时间复杂度T(n)：耗费时间的长度
 
 算法分析：
 		一、正确性：算法功能与问题要求一致
@@ -92,7 +95,7 @@ random access machine:
 		
 		线性递归：
 			sum(int A[],int n){
-				return (n<1)?0:sum(A,n-1)+A[n-1];
+				return (n<1)?0:sum(A,n-1)+A[n-1];  
 			}
 			复杂的：O(n)
 		递推方程：T(n)=T(n-1)+O(1)
@@ -101,3 +104,4 @@ random access machine:
 	分而治之
 
 		
+动态规划：

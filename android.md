@@ -145,3 +145,8 @@ ImagePipelineConfig config = ImagePipelineConfig.newBuilder(getApplicationContex
             .build();
 
 Fresco.initialize(getApplicationContext(), config);
+
+ijkPlayer 去掉log
+	 	#define VLOG(level, TAG, ...)    
+		#define ALOG(level, TAG, ...)    
+		把实现print去掉即可
