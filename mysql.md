@@ -1,3 +1,5 @@
+zip 安装版本
+
 my.ini
 	[mysqld]
 	port=3306
@@ -23,3 +25,4 @@ net start mysql
 
 修改密码：mysqladmin -u root -p password
 
+登录： mysql -u root -p
