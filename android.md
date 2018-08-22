@@ -150,3 +150,17 @@ ijkPlayer 去掉log
 	 	#define VLOG(level, TAG, ...)    
 		#define ALOG(level, TAG, ...)    
 		把实现print去掉即可
+
+viewpager recyclerview 会 自动滑动，并不知道是啥问题，
+解决方法如下：
+	<RelativeLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        android:descendantFocusability="blocksDescendants">
+
+	        <android.support.v7.widget.RecyclerView
+	            android:layout_width="match_parent"
+	            android:layout_height="match_parent" />
+
+	</RelativeLayout>
+
