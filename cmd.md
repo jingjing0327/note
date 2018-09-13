@@ -38,3 +38,5 @@ vim /etc/profile
 export ANDROID_NDK=/root/android/android-ndk-r11c
 export PATH=${PATH}:$NDK
 source /etc/profile
+
+DsMPyQPTK4Kj

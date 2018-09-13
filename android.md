@@ -164,3 +164,40 @@ viewpager recyclerview 会 自动滑动，并不知道是啥问题，
 
 	</RelativeLayout>
 
+
+默认Activity跳转动画设置
+style.xml
+<item name="android:windowAnimationStyle">@style/Player_animation</item>
+<style name="Player_animation" mce_bogus="1" parent="@android:style/Theme.Light.NoTitleBar">
+        <item name="android:activityCloseExitAnimation">@anim/popupwindow_exit</item>
+        <item name="android:activityOpenEnterAnimation">@anim/popupwindow_enter</item>
+        <item name="android:activityOpenExitAnimation">@anim/popupwindow_exit</item>
+        <item name="android:activityCloseEnterAnimation">@anim/popupwindow_enter</item>
+</style>
+popupwindow_exit.xml
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android" >
+    <alpha
+        android:duration="500"
+        android:fromAlpha="1.0"
+        android:toAlpha="0.5" />
+    <translate
+        android:fromYDelta="0"
+        android:toYDelta="100%p"
+        android:duration="500" />
+</set>
+popupwindow_enter.xml
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android" >
+    <translate
+        android:duration="200"
+        android:fromYDelta="100%p"
+        android:toYDelta="0" />
+    <alpha
+        android:duration="500"
+        android:fromAlpha="0.5"
+        android:toAlpha="1.0" />
+</set>
+
+notification 收起状态栏
+sendBroadcast(new Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS));
