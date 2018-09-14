@@ -40,3 +40,6 @@ export PATH=${PATH}:$NDK
 source /etc/profile
 
 DsMPyQPTK4Kj
+
+
+ls -l |grep "^-"|wc -l
