@@ -43,3 +43,14 @@ DsMPyQPTK4Kj
 
 
 ls -l |grep "^-"|wc -l
+
+nginx rewrite模块：pcre库
+nginx gzip模块：zlib库
+nginx ssl模块：openssl库
+rpm -q pcre
+rpm -q zlib
+rpm -q openssl
+开启ssl 模块需要./configure执行时带上选项 --with-http_ssl_module
+./configure --with-http_ssl_module
+make
+make install 
