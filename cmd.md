@@ -54,3 +54,22 @@ rpm -q openssl
 ./configure --with-http_ssl_module
 make
 make install 
+
+
+######################################################
+centos 7
+防火墙
+启动防火墙 systemctl start firewalld.service
+
+开启 80  端口
+firewall-cmd --zone=public --add-port=80/tcp --permanent  
+
+开启443 端口
+firewall-cmd --zone=public --add-port=443/tcp --permanent 
+
+重启防火墙
+firewall-cmd --reload
+
+查看防火墙端口状态
+firewall-cmd --zone=public --list-ports
+######################################################

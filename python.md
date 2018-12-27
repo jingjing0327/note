@@ -218,4 +218,6 @@ nohup python3 -u app.py > app.log &
 		timeout = 120
 		accesslog = 'acess.log'
 		errorlog = 'error.log'
-			
+
+PIL.ImageDraw.Draw.text(xy, text, fill=None, font=None, anchor=None, spacing=0, align="left")
+
