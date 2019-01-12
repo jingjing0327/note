@@ -72,4 +72,14 @@ firewall-cmd --reload
 
 查看防火墙端口状态
 firewall-cmd --zone=public --list-ports
+
+删除
+firewall-cmd --zone=public --remove-port=20/tcp --permanent --永久删除卡对外开放的端口
+
 ######################################################
+
+软链接
+ln -s /usr/local/python3/bin/gunicorn /usr/bin/gunicorn
+
+
+ffmpeg  -y -i 原视频.mp4 -vcodec copy -acodec copy -ss 00:00:04 -to 00:00:08 cut_time.mp4 

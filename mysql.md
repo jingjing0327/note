@@ -26,3 +26,22 @@ net start mysql
 修改密码：mysqladmin -u root -p password
 
 登录： mysql -u root -p
+
+
+   [root@localhost src]# wget http://repo.mysql.com/mysql57-community-release-el7-8.noarch.rpm 
+
+   [root@localhost src]# rpm -ivh mysql57-community-release-el7-8.noarch.rpm 
+
+   [root@localhost src]#  yum -y install mysql-server 
+根据步骤安装就可以了，
+
+默认配置文件路径： 
+配置文件：/etc/my.cnf 
+日志文件：/var/log/var/log/mysqld.log 
+服务启动脚本：/usr/lib/systemd/system/mysqld.service 
+socket文件：/var/run/mysqld/mysqld.pid
+
+
+GRANT USAGE ON *.* TO 'remote_lq'@'%' IDENTIFIED BY '123456' WITH GRANT OPTION;
+remote_lq   $   123456
+User       Host  Password
