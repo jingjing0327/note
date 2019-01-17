@@ -45,3 +45,19 @@ socket文件：/var/run/mysqld/mysqld.pid
 GRANT USAGE ON *.* TO 'remote_lq'@'%' IDENTIFIED BY '123456' WITH GRANT OPTION;
 remote_lq   $   123456
 User       Host  Password
+
+CREATE DATABASE IF NOT EXISTS zi_wei DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
+
+
+
+授权
+grant all privileges on zi_wei.* to 'remote_lq'@'%' identified by '123456';
+
+flush privileges;
+
+mysql 卡死
+show processlist;
+
+select trx_state, trx_started, trx_mysql_thread_id, trx_query from information_schema.innodb_trx\G
+
+kill trx_mysql_thread_id
