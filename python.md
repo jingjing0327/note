@@ -152,7 +152,6 @@ nohup python3 -u app.py > app.log &
 <TextView
             android:id="@+id/new_update_tip"
 ------------------------
-
 # flash post 获取参数
 		_data=request.get_json();  //get_json()获取前台传过来的json
 		company=Company(**_data)	//json 转成对象
