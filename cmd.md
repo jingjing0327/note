@@ -76,6 +76,9 @@ firewall-cmd --zone=public --list-ports
 删除
 firewall-cmd --zone=public --remove-port=20/tcp --permanent --永久删除卡对外开放的端口
 
+查看
+firewall-cmd --zone=public --query-port=80/tcp
+
 ######################################################
 
 软链接
