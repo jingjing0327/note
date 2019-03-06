@@ -43,7 +43,7 @@ socket文件：/var/run/mysqld/mysqld.pid
 
 
 GRANT USAGE ON *.* TO 'remote_lq'@'%' IDENTIFIED BY '123456' WITH GRANT OPTION;
-remote_lq   $   123456
+remote_lq   %   123456
 User       Host  Password
 
 CREATE DATABASE IF NOT EXISTS zi_wei DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
