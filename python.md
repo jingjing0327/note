@@ -46,6 +46,18 @@
 		f=urllib.request.urlopen(req)
 		datax=f.read().decode('utf-8','ignore')
 
+		
+	def net():
+	    data = {
+	        "union_id": "oNl6C5y42K8pEEPnOTpieLGnKyOg"
+	    }
+	    values = urllib.parse.urlencode(data).encode(encoding='UTF8')
+	    headers = {'Content-Type': 'application/json'}
+	    request = urllib.request.Request(url='http://localhost:667/calc/getProfitListByUnionId', headers=headers,
+	                                     data=json.dumps(data).encode())
+	    response = urllib.request.urlopen(request)
+	    # data = response.read().decode('utf-8', 'ignore')
+	    print(response)
 	-------------------------------------
 	python2
 
@@ -220,3 +232,6 @@ nohup python3 -u app.py > app.log &
 
 PIL.ImageDraw.Draw.text(xy, text, fill=None, font=None, anchor=None, spacing=0, align="left")
 
+
+<!-- nohup -->
+nohup python3 -u BuildJSON.py > nohup.out 2>&1 & 
