@@ -61,3 +61,6 @@ show processlist;
 select trx_state, trx_started, trx_mysql_thread_id, trx_query from information_schema.innodb_trx\G
 
 kill trx_mysql_thread_id
+
+
+ALTER TABLE yuflx_zi DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;

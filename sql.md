@@ -38,3 +38,21 @@ UNIX_TIMESTAMP(timestamp) 时间戳的问题
 FROM_UNIXTIME(create_time,'%Y-%m-%d %H:%i:%S')
 
 
+DELETE name_library
+FROM
+ name_library, 
+ (
+  SELECT
+   min(id) id,
+   content
+  FROM
+   name_library
+  GROUP BY
+   content
+  HAVING
+   count(*) > 1
+ ) t2
+WHERE
+ name_library.content = t2.content AND name_library.id > t2.id;
+
+UPDATE name_library SET wuxing=REPLACE(wuxing,' ','')

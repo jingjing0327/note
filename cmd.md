@@ -86,3 +86,6 @@ ln -s /usr/local/python3/bin/gunicorn /usr/bin/gunicorn
 
 
 ffmpeg  -y -i 原视频.mp4 -vcodec copy -acodec copy -ss 00:00:04 -to 00:00:08 cut_time.mp4 
+
+查看端口状态
+netstat -ntulp
