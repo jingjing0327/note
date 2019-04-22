@@ -58,34 +58,38 @@ make install
 
 ######################################################
 centos 7
-防火墙
-启动防火墙 systemctl start firewalld.service
+#防火墙
+#启动防火墙 
+systemctl start firewalld.service
 
-开启 80  端口
+#开启 80  端口
 firewall-cmd --zone=public --add-port=80/tcp --permanent  
 
-开启443 端口
+#开启443 端口
 firewall-cmd --zone=public --add-port=443/tcp --permanent 
 
-重启防火墙
+#重启防火墙
 firewall-cmd --reload
 
-查看防火墙端口状态
+#查看防火墙端口状态
 firewall-cmd --zone=public --list-ports
 
-删除
+#删除
 firewall-cmd --zone=public --remove-port=20/tcp --permanent --永久删除卡对外开放的端口
 
-查看
+#查看
 firewall-cmd --zone=public --query-port=80/tcp
 
 ######################################################
 
-软链接
+#软链接
 ln -s /usr/local/python3/bin/gunicorn /usr/bin/gunicorn
 
 
 ffmpeg  -y -i 原视频.mp4 -vcodec copy -acodec copy -ss 00:00:04 -to 00:00:08 cut_time.mp4 
 
-查看端口状态
+#查看端口状态
 netstat -ntulp
+
+#php 编译安装
+./configure --prefix=/usr/local/php --with-apxs2=/usr/bin/apxs --enable-fpm --with-config-file-path=/usr/local/lib --with-zlib-dir=/usr/lib --with-gd --with-pdo_mysql --with-zip --with--curl --with--mb_strlen
