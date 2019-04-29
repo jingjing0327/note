@@ -1,3 +1,6 @@
+
+https://github.com/AweiLoveAndroid/CommonDevKnowledge/blob/master/interview/contents/java%E9%9D%A2%E8%AF%95%E9%A2%98.md
+
 # java中==和equals和hashCode的区别
 
 	java中的数据类型分为两种：
