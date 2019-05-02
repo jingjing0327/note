@@ -62,4 +62,8 @@ https://github.com/AweiLoveAndroid/CommonDevKnowledge/blob/master/interview/cont
 	
 	Serializable 接口
 	parcelable 接口
-
+# 静态属性和静态方法是否可以被继承？是否可以被重写？以及原因？
+	不能。
+	静态属性和静态框架只初始化一次。
+# 静态内部类的设计意图
+		
