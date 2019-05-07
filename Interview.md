@@ -1,4 +1,3 @@
-
 https://github.com/AweiLoveAndroid/CommonDevKnowledge/blob/master/interview/contents/java%E9%9D%A2%E8%AF%95%E9%A2%98.md
 
 # java中==和equals和hashCode的区别
@@ -102,3 +101,134 @@ https://github.com/AweiLoveAndroid/CommonDevKnowledge/blob/master/interview/cont
 	中文是4个字节
 	int是1个字节
 # 静态代理和动态代理的区别,什么场景使用?
+	代理是一种软件设计模式，目的就是希望能做到代码的重用。这种的设计模式是说不通过代码来访问对象的方式，而是通过代理的方式来访问对象。
+
+	比如说我在接手前人的代码时候，里面的代码逻辑可能让人摸不到头脑，这时候就很难去下手去修改，这个时候我们就通过代理的方式去进行类的增强。
+
+	那是一种解耦合的一种表现，不去直接访问对象。
+
+	spring的AOP机制思想就是采用了动态代理的机制来是实现的面相切面编程。
+
+	静态代理：
+		创建一个接口，java api代理机制要求被代理的类必须实现某个接口，对于静态代理方式代理类也要是实现和被代理相同的接口；
+
+	动态代理：
+		动态代理则不需要实现被代理类所实现的接口，而是通过反射实现的接口。
+		InvocationHanlder 实现这个接口
+		invoke 方法
+# Java的异常体系
+	Throwable 是所有异常类的父类。
+	Error、Exception
+
+# 谈谈你对解析与分派的认识。
+
+# 修改对象A的equals方法的签名，那么使用HashMap存放这个对象实例的时候，会调用哪个equals方法？
+	当然是对象的equals了啊
+
+# Java中实现多态的机制是什么？
+	重写overRead 是父类与子类的之间多态性的一种表现
+	重载overLoad 是一个类中多态性的一种表现
+
+# 如何将一个Java对象序列化到文件里？
+	序列化：
+		Serializable 
+		FileOutputStream
+		ObjectOutputStream.writeObject(student)
+	反序列化：
+		Serializable
+		FileInputStream
+		Strdent=ObjectInputStream.readObject();
+
+# 说说你对Java反射的理解
+	反射是能够分析类能力的程序
+
+	可以在程序运行过程中分析类的能力
+	在运行中查看对象，例如变下一个toString方法供所有类去使用
+	实现数组的操作代码
+	利用Method对象
+
+# 说说你对Java注解的理解	
+
+# 说说你对依赖注入的理解
+	spring的依赖注入，可以理解为想用什么就是直接拿什么，那不是像之前一样去new什么，用xml或者注解，告诉我你要什么，我就给你什么。
+
+# 说一下泛型原理，并举例说明
+	泛型的本质是参数化类型，也就是说所操作的数据类型被指定为一个参数。这种参数类型可以用在类、接口和方法的创建中，分别称为泛型类、泛型接口、泛型方法。
+	泛型可以消除代码中的强制类型装换，同时获得一个附加的类型检查层，该检查层可以防止有人将错误类型的键或值保存在集合中。这就是泛型所做的工作。
+	
+	类型擦除
+
+	好处：
+		类型安全。
+		消除强制类型装换。
+		潜在的性能收益。
+
+# Java中String的了解
+	String是final类型，也就是意味着String类是不是能被继承的，并且他的成员方法都默认是final方法。
+	String类其实是通过char数组来保存字符串的。
+	String对象一旦被创建就是固定不变的，对String对象任何操作和改变都不影响原来的对象，相关的任何chang操作都会生成新的对象。
+
+	jvm常量池
+	静态常量池和运行时常量池。
+	静态常量池，就是*.class文件中的常量池。
+	运行时常量池，则是jvm虚拟机在完成类装载操作后，讲class文件中的常量池载入到内存中，并保持在方法区中。
+
+	String a = "chenssy";
+	String b = "chenssy";
+	a、b和字面上的chenssy都是指向JVM字符串常量池中的"chenssy"对象，他们指向同一个对象。
+
+	String aa="abc" 和 Sting aa=new String("abc")这两个有什么区别呢？
+	=的话是直接在jvm常量池中寻找或者创建
+	new是在现在jvm常量池中寻找或者创建，之后在堆中创建一个新的对象，指向内存地址
+
+# String为什么要设计成不可变的?
+	不可变支持线程安全
+	不可变支持字符串常量池，提升性能
+
+# 常用数据结构简介
+
+# 并发集合了解哪些？
+
+# 列举java的集合以及集合之间的继承关系
+
+# 集合类以及集合框架
+	Collection 包含List和Set
+	List包含：LinkedList、ArrayList、Vector
+	Set包含：HashSet、TreeSet、SortedSet
+
+	Map包含：HashMap、WeakHaskMap、TreeMap、SortedMap
+	HashMap有entrySet Set<Map.Entry<K,V>> Set 集合
+	所以它可以遍历
+# List,Set,Map的区别
+	ArrayList是一个数组队列，相当于动态数组，他的容量能动态增长。
+	线程不安全的。
+	int newCapacity = (oldCapacity * 3)/2 + 1;
+	新的容量是旧容量 * 3 / 2
+	3种遍历方式：
+		1、因为ArrayList有RandomAccess接口的实现，所有他支持随机访问。
+		2、迭代器
+		3、for循环
+	LinkedList是双向链表。实现了List接口，能对它进行排序操作。
+	双向链表：就是除去头和尾部分，中间的值是保存了上一个和下一个的内存地址。
+
+	
+	HashMap是线程不安全的，于是就是出现了HashTable，HashTable的实现方法和HashMap的实现方法是一样的，只是hashTable是线程安全的，并且不允许为null，key和value都不允许为null。但是HashTable的安全策略比较简单粗暴，put/get的所有操作都加上了锁，syschronized。这样的话，性能就大大打了折扣。
+	于是就出现了ConcurrentHashMap,他的设计是非常精妙的分段锁策略。他的主干就是一段一段的数组，segment数组。每个数组维护一个锁，默认ConcurrentLevel为16，也就是说可以有16线程并发嘛。所以，对于同一个segment才去考虑线程同步。
+	一个segment维护一个HashEntry数组。
+	hashEntry是最小处理单元。
+	Segment数组的大小通过散列算法实现。
+
+	哈希函数：哈希表的主干是数组。
+	为啥哈希会比较快：通过哈希函数计算出实际的存储地址，然后从数组中对应的地址取出值即可！
+	哈希冲突：
+	这是必然的，两个不通的原始，通过哈希算法得出的实际存储地址是相同的。
+	HashMap的解决方法：数组+链表的方式。
+	get的方法：key-haskcode-hash-indexFor-最终索引地址，table[i]，得到位置之后，在查看是否有链表，遍历链表，通过key的query方法进行查找对应的记录。
+
+
+
+
+
+
+
+
