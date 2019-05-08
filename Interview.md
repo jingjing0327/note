@@ -191,6 +191,7 @@ https://github.com/AweiLoveAndroid/CommonDevKnowledge/blob/master/interview/cont
 
 # 列举java的集合以及集合之间的继承关系
 
+
 # 集合类以及集合框架
 	Collection 包含List和Set
 	List包含：LinkedList、ArrayList、Vector
@@ -199,18 +200,44 @@ https://github.com/AweiLoveAndroid/CommonDevKnowledge/blob/master/interview/cont
 	Map包含：HashMap、WeakHaskMap、TreeMap、SortedMap
 	HashMap有entrySet Set<Map.Entry<K,V>> Set 集合
 	所以它可以遍历
+
+
+
 # List,Set,Map的区别
+	List
+		ArrayList
+		LinkedList
+		Vector
+	Set
+		HashSet
+	Map
+		HashMap
+		ConcurrentHashMap
+		LinkedHashMap
+		ArrayMap
+		TreeMap
+		HashTable
+
+	==============================
+	==============================
+	==============================
+	==============================
 	ArrayList是一个数组队列，相当于动态数组，他的容量能动态增长。
 	线程不安全的。
+	初始大小为10
 	int newCapacity = (oldCapacity * 3)/2 + 1;
 	新的容量是旧容量 * 3 / 2
 	3种遍历方式：
 		1、因为ArrayList有RandomAccess接口的实现，所有他支持随机访问。
 		2、迭代器
 		3、for循环
+
 	LinkedList是双向链表。实现了List接口，能对它进行排序操作。
 	双向链表：就是除去头和尾部分，中间的值是保存了上一个和下一个的内存地址。
 
+	Vector 是队列，是安全的，所有的方法都加了锁。
+	实际上是通过数组去保存数据的，默认的容量是10
+	当Vector容量不足一容纳全部元素的时候，Vector的容量会增加。若容量增加系数>0，则将容量的值增加“容量增加系数”；否则就是将大小增加一倍。
 	
 	HashMap是线程不安全的，于是就是出现了HashTable，HashTable的实现方法和HashMap的实现方法是一样的，只是hashTable是线程安全的，并且不允许为null，key和value都不允许为null。但是HashTable的安全策略比较简单粗暴，put/get的所有操作都加上了锁，syschronized。这样的话，性能就大大打了折扣。
 	于是就出现了ConcurrentHashMap,他的设计是非常精妙的分段锁策略。他的主干就是一段一段的数组，segment数组。每个数组维护一个锁，默认ConcurrentLevel为16，也就是说可以有16线程并发嘛。所以，对于同一个segment才去考虑线程同步。
@@ -221,10 +248,16 @@ https://github.com/AweiLoveAndroid/CommonDevKnowledge/blob/master/interview/cont
 	哈希函数：哈希表的主干是数组。
 	为啥哈希会比较快：通过哈希函数计算出实际的存储地址，然后从数组中对应的地址取出值即可！
 	哈希冲突：
-	这是必然的，两个不通的原始，通过哈希算法得出的实际存储地址是相同的。
+	这是必然的，两个不同的原始，通过哈希算法得出的实际存储地址是相同的。
 	HashMap的解决方法：数组+链表的方式。
 	get的方法：key-haskcode-hash-indexFor-最终索引地址，table[i]，得到位置之后，在查看是否有链表，遍历链表，通过key的query方法进行查找对应的记录。
+	
+	Set里存放的对象是无序，不能重复的，集合中的对象不安特定的方式排序，只是将对象加入到集合中。
+	HashSet的构造方法第一句就是map=new HashMap<E,Object>，是用了HashMap的key来实现各种特性，不允许重复，允许null值，非线程安全的。
 
+	LinkedHashMap有一个数组保存了插入的顺序。
+
+	
 
 
 
