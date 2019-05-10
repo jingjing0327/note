@@ -191,6 +191,7 @@ https://github.com/AweiLoveAndroid/CommonDevKnowledge/blob/master/interview/cont
 
 # 列举java的集合以及集合之间的继承关系
 
+# 集合排序，比较器
 
 # 集合类以及集合框架
 	Collection 包含List和Set
@@ -251,13 +252,25 @@ https://github.com/AweiLoveAndroid/CommonDevKnowledge/blob/master/interview/cont
 	这是必然的，两个不同的原始，通过哈希算法得出的实际存储地址是相同的。
 	HashMap的解决方法：数组+链表的方式。
 	get的方法：key-haskcode-hash-indexFor-最终索引地址，table[i]，得到位置之后，在查看是否有链表，遍历链表，通过key的query方法进行查找对应的记录。
+
+	jdk1.8后，java对HashMap做了改进，在链表长度大于8的时候，将后面的数据存在红黑树中，以加快检索的速度。
+	
 	
 	Set里存放的对象是无序，不能重复的，集合中的对象不安特定的方式排序，只是将对象加入到集合中。
 	HashSet的构造方法第一句就是map=new HashMap<E,Object>，是用了HashMap的key来实现各种特性，不允许重复，允许null值，非线程安全的。
 
 	LinkedHashMap有一个数组保存了插入的顺序。
-
 	
+	ArrayMap内部有两个比较重要的数组，一个是mHashes，另一个是mArray。
+	mHashes是用来存放key的hashcode值，是从小到大的排序方式。
+	mArray是用来存放key与value的值，是mHashes大小的2倍。
+
+
+	SparseArray比HashMap更省内存，在某些条件下性能更好，主要是避免了对key的自动装箱。是通过两个数组来进行数据存储的，一个存储是key，另外一个存储是value。SparseArray只能存储key为int类型的数据，同时在存储和读取数据时候，使用的是二分才查找发。key，value是按照从小到大的顺序排列好的。
+
+
+
+
 
 
 
