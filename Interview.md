@@ -254,7 +254,7 @@ https://github.com/AweiLoveAndroid/CommonDevKnowledge/blob/master/interview/cont
 	get的方法：key-haskcode-hash-indexFor-最终索引地址，table[i]，得到位置之后，在查看是否有链表，遍历链表，通过key的query方法进行查找对应的记录。
 
 	jdk1.8后，java对HashMap做了改进，在链表长度大于8的时候，将后面的数据存在红黑树中，以加快检索的速度。
-	
+
 	
 	Set里存放的对象是无序，不能重复的，集合中的对象不安特定的方式排序，只是将对象加入到集合中。
 	HashSet的构造方法第一句就是map=new HashMap<E,Object>，是用了HashMap的key来实现各种特性，不允许重复，允许null值，非线程安全的。
@@ -272,6 +272,10 @@ https://github.com/AweiLoveAndroid/CommonDevKnowledge/blob/master/interview/cont
 
 
 
+# 多线程
+	继承Thread
+	实现Runnable
+	实现Callable
 
 
 
