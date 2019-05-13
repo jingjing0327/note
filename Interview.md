@@ -277,6 +277,8 @@ https://github.com/AweiLoveAndroid/CommonDevKnowledge/blob/master/interview/cont
 	实现Runnable
 	实现Callable
 
+# run和start方法的区别
+	run只是方法，start才是启动子线程的调用，无需等待run方法执行完成。
 
 
 
