@@ -4,4 +4,6 @@ Spring 注解
 	@RestController
 	@Controller
 	@ResponseBody
+	@GetMapping
+	@Autowired
 
