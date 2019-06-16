@@ -6,4 +6,5 @@ Spring 注解
 	@ResponseBody
 	@GetMapping
 	@Autowired
+	@Bean
 
