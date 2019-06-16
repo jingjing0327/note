@@ -33,3 +33,15 @@ systemctl docker
 	-p 3307:3306 ----3307是本机的端口，3306是docker的端口
 # 容器日志
 	docker logs container-name/container-id
+# mysql run
+	docker run --name luojigou_001 -p 3307:3306 -e MYSQL_ROOT_PASSWORD=asdfg12345 -d mysql:tag 
+# mysql 进入系统命令
+	docker exec -it luojigou_001 bash
+	mysql -uroot -p
+	输入密码，正常是用
+	show databases;
+	show tables;
+	
+
+
+
