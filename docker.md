@@ -44,4 +44,17 @@ systemctl docker
 	
 
 
+### nginx
+# 启动
+$ docker run --name runoob-nginx-test -p 8081:80 -d nginx
 
+
+### 首先，创建目录 nginx, 用于存放后面的相关东西。
+mkdir -p ~/nginx/www ~/nginx/logs ~/nginx/conf
+#拷贝容器内 Nginx 默认配置文件到本地当前目录下的 conf 目录，容器 ID 可以查看 docker ps 命令输入中的第一列：
+docker cp 6dd4380ba708:/etc/nginx/nginx.conf ~/nginx/conf
+www: 目录将映射为 nginx 容器配置的虚拟目录。
+logs: 目录将映射为 nginx 容器的日志目录。
+conf: 目录里的配置文件将映射为 nginx 容器的配置文件。
+#部署命令
+$ docker run -d -p 8082:80 --name runoob-nginx-test-web -v ~/nginx/www:/usr/share/nginx/html -v ~/nginx/conf/nginx.conf:/etc/nginx/nginx.conf -v ~/nginx/logs:/var/log/nginx nginx
