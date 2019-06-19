@@ -13,3 +13,26 @@ Spring boot + Spring Security
 
 
 vue 前后端分离，spring Security是怎么做的呢？
+
+Api接口传递的参数验证：
+推荐使用@Valid注解的方式，在方法参数多传递一个BindingResult error参数，所有的参数就是放到这个对象里面
+
+@JsonView 可以指定那些值显示，那些值不显示。在显示相同字段时候，不同Controller的时候去选择；
+使用接口来声明多个视图
+在值对象的get方法上指定视图
+在Controller方法上指定视图
+
+
+
+@PostMapping
+@GetMapping
+
+MockMvc 在测试用例上非常方便的使用
+
+## id 这样就可以作为变量来使用了
+访问的换就可以 /user/1234
+这里的1234位用户的id
+@RequestMapping(value="/user/{id}",method=RequestMethod.GET)
+public User getInfo(@PathVariable String id){
+	
+}
