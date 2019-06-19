@@ -1,7 +1,7 @@
 # install
 yum update
 yum install docker
-systemctl docker
+systemctl start docker
 
 ### docker仓库 https://hub.docker.com
 
