@@ -26,7 +26,7 @@ systemctl start docker
 # 启动
 	docker start container-name/container-id
 # 停止
-	docker stop container-name/container-id
+	yum stop container-name/container-id
 # 删除
 	docker rm container-id
 # 端口映射
@@ -42,6 +42,9 @@ systemctl start docker
 	show databases;
 	show tables;
 	
+# MySQL8.0的caching_sha2_password问题
+然后输入ALTER USER root@localhost IDENTIFIED WITH mysql_native_password BY 'asdfg12345.';，然后调用下命令FLUSH PRIVILEGES;
+ALTER USER root IDENTIFIED WITH mysql_native_password BY 'asdfg12345.';
 
 
 ### nginx

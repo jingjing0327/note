@@ -36,3 +36,50 @@ MockMvc 在测试用例上非常方便的使用
 public User getInfo(@PathVariable String id){
 	
 }
+
+
+
+
+@Aspect
+@Pointcut
+@Component
+@Before
+@AfterReturning
+@AfterThrowing
+@After
+@Around
+@Order
+
+JWT
+
+
+Validator 验证框架
+
+@NotNull
+@Null
+@Pattern
+@Size(min=,max=)
+@Emall
+@Lenght(min=,max=)
+@NotBlank
+@NotEmpty
+@Range(min=,max=)
+@SafeHtml
+@URL
+
+
+
+HV000030: No validator coul 
+int long 不能用@NotBlank
+
+@Validated
+
+public JsonResult createSKU(@Valid @RequestBody List<SKUInfo> skuInfos, BindingResult bindingResult)
+@Valid 是不会验证List的
+
+@RestController
+@RequestMapping("/manage")
+@Validated
+public class SKUController {
+
+需要在Controller上面加上个注解@Validated
