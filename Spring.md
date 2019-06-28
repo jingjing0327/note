@@ -83,3 +83,22 @@ public JsonResult createSKU(@Valid @RequestBody List<SKUInfo> skuInfos, BindingR
 public class SKUController {
 
 需要在Controller上面加上个注解@Validated
+
+@Validated是错误的解决方法，
+正确方法是：
+
+public class ValidList<E> {
+
+    @Valid
+    private List<E> list;
+
+    public List<E> getList() {
+        return list;
+    }
+
+    public void setList(List<E> list) {
+        this.list = list;
+    }
+}
+
+使用类去包裹一下，@Valid只能验证类
