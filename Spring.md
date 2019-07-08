@@ -41,16 +41,37 @@ public User getInfo(@PathVariable String id){
 
 
 @Aspect
+把这个类声明为一个切面，需要把该类放入到IOC容器中，在声明为一个切面
+
 @Pointcut
+定义一个方法，用于声明切入点表达式。一般地，该方法中不需要添入其他的代码。
+	demo：
+		@Pointcut("execution(public int com.xxx.*(...))")
+		public void declareJointPointExpression(){}
+		
+		@Before("declareJointPointExpression")
+
+
 @Component
+
 @Before
+声明改方法是一个前置通知，在目标方法开始之前执行
 @AfterReturning
 @AfterThrowing
 @After
 @Around
+
 @Order
+指定切面的优先级，值越小优先级越高
+
+@Transactional
+添加事务注解
+最后你要在Application类中开启事务管理，开启事务管理很简单，只需要@EnableTransactionManagement注解就行
+
+
 
 JWT
+jpa
 
 
 Validator 验证框架
