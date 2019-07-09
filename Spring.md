@@ -52,6 +52,8 @@ public User getInfo(@PathVariable String id){
 
 JWT
 
+lombok ===>>>这他妈又是个啥？简化实体类的编写
+
 
 Validator 验证框架
 
