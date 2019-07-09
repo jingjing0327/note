@@ -47,7 +47,10 @@ public User getInfo(@PathVariable String id){
 定义一个方法，用于声明切入点表达式。一般地，该方法中不需要添入其他的代码。
 	demo：
 		@Pointcut("execution(public int com.xxx.*(...))")
-		public void declareJointPointExpression(){}
+		
+		public void declareJointPointExpression(){
+
+		}
 		
 		@Before("declareJointPointExpression")
 
