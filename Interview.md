@@ -280,6 +280,20 @@ https://github.com/AweiLoveAndroid/CommonDevKnowledge/blob/master/interview/cont
 # run和start方法的区别
 	run只是方法，start才是启动子线程的调用，无需等待run方法执行完成。
 
+# 单链表反转
+	public static Node reverseList(Node node) {
+	  Node pre = null;
+	  Node next = null;
+	  while (node != null) {
+	      next = node.next;
+	      node.next = pre;
+	      pre = node;
+	      node = next;
+	  }
+	  return pre;
+	}
+	就是把链表的指向更改一下呗
+
 
 
 
