@@ -35,6 +35,14 @@ net start mysql
    [root@localhost src]#  yum -y install mysql-server 
 根据步骤安装就可以了，
 
+
+SET PASSWORD = PASSWORD('xhY69Mo%AGamjCxx');
+
+ALTER USER 'root'@'localhost' PASSWORD EXPIRE NEVER;
+
+flush privileges;
+
+
 默认配置文件路径： 
 配置文件：/etc/my.cnf 
 日志文件：/var/log/var/log/mysqld.log 
@@ -52,6 +60,10 @@ CREATE DATABASE IF NOT EXISTS zi_wei DEFAULT CHARSET utf8 COLLATE utf8_general_c
 
 授权
 grant all privileges on zi_wei.* to 'remote_lq'@'%' identified by '123456';
+
+grant all privileges on *.* to 'remote_lq'@'%' identified by '1';
+
+123456 是密码！
 
 flush privileges;
 
