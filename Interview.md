@@ -280,10 +280,27 @@ https://github.com/AweiLoveAndroid/CommonDevKnowledge/blob/master/interview/cont
 # run和start方法的区别
 	run只是方法，start才是启动子线程的调用，无需等待run方法执行完成。
 
+<<<<<<< HEAD
+# 单链表反转
+	public static Node reverseList(Node node) {
+	  Node pre = null;
+	  Node next = null;
+	  while (node != null) {
+	      next = node.next;
+	      node.next = pre;
+	      pre = node;
+	      node = next;
+	  }
+	  return pre;
+	}
+	就是把链表的指向更改一下呗
+
+=======
 # java中的同步的方法
 	synchronized
 	是利用锁的机制来实现同步的。
 	互斥行：在同一时间值允许一个线程持有某个对象锁，通过这种特性来实现对乡村中的协调机制，这样在同意时间只有一个线程对需同步的代码块进行访问。互斥性我们也往往称为操作的原子性。
+>>>>>>> 106f35494a8eb553ff98cb328fdf265498375a23
 
 	可见性：必须确保在锁被释放执行，对共享变量所做的修改，对于随后获得该锁的另一个线程是可见的。
 
