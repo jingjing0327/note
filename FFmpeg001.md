@@ -48,3 +48,17 @@ ffmpeg解码函数的作用
 	avcodec_devode_video2():解码一帧压缩数据
 	avcodec_close():关闭解码器
 	avformat_close_input():关闭输入视频文件
+
+ffmpeg的数据结构
+	AVFormatContext
+		封装格式上下文结构体，也是统领全局的结构体，保存了视频文件封装格式相关信息。
+	AVInputFormat
+		每种封装格式（flv，mkv，mp4，avi）对应一个该结构体。
+	AVCodecContext
+		编码器上下文结构体，保存了音视频的编解码的相关信息。
+	AVCodec
+		每种音视频编解码器（例如H.264解码器）对应一个该结构体。
+	AVPacker
+		存储一帧压缩编码数据。
+	AVFrame
+		存储一帧解码后像素（采样）数据
