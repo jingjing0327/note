@@ -96,7 +96,12 @@ Validator 验证框架
 
 
 HV000030: No validator coul 
-int long 不能用@NotBlank
+int long 不能用@NotBlank 应该使用@NotNull
+
+如果出现对象嵌套怎么办？
+@Valid
+private List<OrderInfo> orderInfoList;
+直接@Valid来判断进行下一步类的判断
 
 @Validated
 
