@@ -62,3 +62,14 @@ ffmpeg的数据结构
 		存储一帧压缩编码数据。
 	AVFrame
 		存储一帧解码后像素（采样）数据
+
+SDL视频显示函数简介：
+	SDL_Init()：初始化SDL系统
+	SDL_CreateWindow():创建窗口SDL_Window
+	SDL_CreateRederer():创建渲染器SDL_Renderer
+	SDL_CreateTexture():创建纹理SDL_Texture
+	SDL_UpdateTexture():设置更改文件数据
+	SDL_RenderCopy():将纹理的数据拷贝给渲染器
+	SDL_RenderPresend():显示
+	SDL_Delay(): 工具函数，用于延时
+	SDL_Quit():退出SDL系统
