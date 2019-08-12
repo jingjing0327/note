@@ -73,3 +73,13 @@ SDL视频显示函数简介：
 	SDL_RenderPresend():显示
 	SDL_Delay(): 工具函数，用于延时
 	SDL_Quit():退出SDL系统
+
+SDL数据结构：
+	SDL_Window
+		代表一个窗口
+	SDL_Renderer
+		代表一个渲染器
+	SDL_Texture
+		代表一个纹理
+	SDL_Rect
+		一个简单的矩形结构
