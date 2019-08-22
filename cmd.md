@@ -92,4 +92,15 @@ ffmpeg  -y -i 原视频.mp4 -vcodec copy -acodec copy -ss 00:00:04 -to 00:00:08 
 netstat -ntulp
 
 #php 编译安装
-./configure --prefix=/usr/local/php --with-apxs2=/usr/bin/apxs --enable-fpm --with-config-file-path=/usr/local/lib --with-zlib-dir=/usr/lib --with-gd --with-pdo_mysql --with-zip --with--curl --with--mb_strlen
+./configure --prefix=/usr/local/php --with-apxs2=/usr/bin/apxs --enable-fpm --with-config-file-path=/usr/local/lib --with-zlib-dir=/usr/lib --with-gd --with-pdo_mysql --with-zip --with-http_ssl_module --with--curl --with--mb_strlen
+
+
+
+定义location:（这是另外一种定义location的方式，通过路径来定义）
+
+location /my/ {
+    root /data;
+}
+当访问kzl.css这个文件时，触发这个location，然后这个location会在
+
+root + 【匹配路径】 这个路径中找文件。在此处就是在http:10.10.10.10:5050/data/my/目录下找kzl.css。这样就可以找到文件了。

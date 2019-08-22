@@ -135,3 +135,5 @@ public class ValidList<E> {
 使用类去包裹一下，@Valid只能验证类
 
 二级缓存
+
+poi

@@ -43,8 +43,7 @@ systemctl start docker
 	show tables;
 	
 # MySQL8.0的caching_sha2_password问题
-然后输入ALTER USER root@localhost IDENTIFIED WITH mysql_native_password BY 'asdfg12345.';，然后调用下命令FLUSH PRIVILEGES;
-ALTER USER root IDENTIFIED WITH mysql_native_password BY 'asdfg12345.';
+然后输入ALTER USER root IDENTIFIED WITH mysql_native_password BY 'asdfg12345.';，然后调用下命令FLUSH PRIVILEGES;
 
 
 ### nginx
