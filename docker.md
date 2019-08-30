@@ -26,7 +26,7 @@ systemctl start docker
 # 启动
 	docker start container-name/container-id
 # 停止
-	yum stop container-name/container-id
+	docker stop container-name/container-id
 # 删除
 	docker rm container-id
 # 端口映射
@@ -34,7 +34,7 @@ systemctl start docker
 # 容器日志
 	docker logs container-name/container-id
 # mysql run
-	docker run --name luojigou_001 -p 3307:3306 -e MYSQL_ROOT_PASSWORD=asdfg12345 -d mysql:tag 
+	docker run --name luojigou_001 -e TZ=Asia/Shanghai -p 3307:3306 -e MYSQL_ROOT_PASSWORD=asdfg12345 -d mysql:tag 
 # mysql 进入系统命令
 	docker exec -it luojigou_001 bash
 	mysql -uroot -p
@@ -60,3 +60,14 @@ logs: 目录将映射为 nginx 容器的日志目录。
 conf: 目录里的配置文件将映射为 nginx 容器的配置文件。
 #部署命令
 $ docker run -d -p 8082:80 --name runoob-nginx-test-web -v ~/nginx/www:/usr/share/nginx/html -v ~/nginx/conf/nginx.conf:/etc/nginx/nginx.conf -v ~/nginx/logs:/var/log/nginx nginx
+
+
+
+
+
+###docker 时间不对
+apt-get update
+apt-get install vim 
+vim /etc/mysql/my.conf
+在[mysqld]下增加
+default-time-zone = '+08:00'
