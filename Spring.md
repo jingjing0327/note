@@ -137,3 +137,5 @@ public class ValidList<E> {
 二级缓存
 
 poi
+
+jdbc:mysql://zaojiao.net:3307/luojigou_mall?serverTimezone=UTC&serverTimezone=Asia/Shanghai

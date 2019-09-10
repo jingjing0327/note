@@ -76,3 +76,9 @@ kill trx_mysql_thread_id
 
 
 ALTER TABLE yuflx_zi DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+
+spring:
+  datasource:
+    druid:
+      url: jdbc:mysql://lqcode.com:3306/player?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8
