@@ -16,7 +16,7 @@ systemctl start docker
 	docker images
 
 # 删除指定的本地镜像
-	docker rmi image-id
+	docker rm image-id
 
 # 运行
 	docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql:tag
@@ -71,3 +71,19 @@ apt-get install vim
 vim /etc/mysql/my.conf
 在[mysqld]下增加
 default-time-zone = '+08:00'
+
+
+### redis
+docker run -p 6380:6379 --name luojigou_redis -v /usr/local/redis/conf/redis.conf:/etc/redis/redis.conf -v /usr/local/redis/data:/data -d redis redis-server /etc/redis/redis.conf --appendonly yes
+
+https://redis.io/topics/config/ 这个地址可以下载redis的配置文件，我下载的是3.2版本的。
+
+下载下来以后修改几个地方：
+
+daemonize no#用守护线程的方式启动 （需要注意，如果是yes，redis是创建后会连不上，这个是个大坑，尤其要注意一下）
+
+requirepass yourpassword#给redis设置密码
+
+bind 127.0.0.1 #注释掉这部分，这是限制redis只能本地访问
+
+appendonly yes#redis持久化
