@@ -87,3 +87,73 @@ requirepass yourpassword#给redis设置密码
 bind 127.0.0.1 #注释掉这部分，这是限制redis只能本地访问
 
 appendonly yes#redis持久化
+
+
+### php
+
+docker run --name myphp -p 9001:9000 -v /root/php/www/:/var/www/html/ --privileged=true -d php:5.6-fpm
+docker run --name myphp7 -p 9002:9000 -v /root/php/www/:/var/www/html/ --privileged=true -d php:7.1-fpm
+
+/root/php/www/ 为主机的地址
+/var/www/html/ 为虚拟机地址
+--privileged=true 
+	在Cent OS 7中运行,如果不加--privileged=true,则会出现nginx没有访问内部文件的权限
+	原因是CentOS7中的安全模块selinux把权限禁掉了，至少有以下三种方式解决挂载的目录没有权限的问题：
+	1，在运行容器的时候，给容器加特权：--privileged=true
+	2，临时关闭selinux：
+	su -c "setenforce 0"
+	3，添加selinux规则，将要挂载的目录添加到白名单：
+	chcon -Rt svirt_sandbox_file_t /var/www/html/xx/www/
+
+宿主nginx的配置：
+	server {
+	    listen       8080;
+	    server_name  *.lqcode.cn;
+	    location ~ \.php$ {
+	        root           /root/php/www;
+	        fastcgi_pass   127.0.0.1:9001;
+	        fastcgi_index  index.php;
+	        fastcgi_param  SCRIPT_FILENAME /var/www/html/$fastcgi_script_name;
+	        include        fastcgi_params;
+	    }
+	}
+解释：root  /root/php/www;  为本机地址
+fastcgi_pass   127.0.0.1:9001;  php 端口地址
+fastcgi_param  SCRIPT_FILENAME /var/www/html/$fastcgi_script_name;   /var/www/html/ 为虚拟机的地址
+
+php出现静态页面Access Denied.
+find / -name "www.conf"
+vim www.conf
+找到下面这句，注释打开,注释是";",重启容器 docker restart myphp7
+security.limit_extensions = .html .htm .php .js .css .jpg .jpeg .gif .png
+
+
+php docker安装gd库扩展
+
+apt update  #更新软件源
+apt install -y libwebp-dev libjpeg-dev libpng-dev libfreetype6-dev #安装各种库
+docker-php-source extract #解压源码
+cd /usr/src/php/ext/gd  #gd源码文件夹
+docker-php-ext-configure gd --with-webp-dir=/usr/include/webp --with-jpeg-dir=/usr/include --with-png-dir=/usr/include --with-freetype-dir=/usr/include/freetype2   #准备编译
+docker-php-ext-install gd   #编译安装
+php -m | grep gd
+docker restart myphp7
+
+
+php安装扩展：pdo_mysql
+docker-php-ext-install pdo pdo_mysql
+如果报 /usr/local/bin/docker-php-ext-enable: cannot create /usr/local/etc/php/conf.d/docker-php-ext-pdo_mysql.ini: Directory nonexistent
+解决方案：
+直接在/usr/local/etc/php目录下面新建 conf.d目录和对应的docker-php-ext-pdo_msql.ini文件
+其中docker-php-ext-pdo_msql.ini的内容为：
+extension=pdo_mysql.so
+
+php安装扩展：zip
+apt-get install -y --no-install-recommends libzip-dev 
+docker-php-ext-install -j$(nproc) zip
+
+
+# httpd
+docker run --name httpd -d --restart always -p 81:80 -v /docker/httpd/html:/var/www/html -v /docker/httpd/logs:/etc/httpd/logs httpd
+
+https://blog.csdn.net/bingzhongdehuoyan/article/details/79424340

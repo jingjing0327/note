@@ -110,3 +110,7 @@ location /player/{
    index index.html;
 }
 ===============================
+
+
+
+dstat

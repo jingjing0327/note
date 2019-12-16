@@ -24,8 +24,15 @@ mysqld --install
 net start mysql
 
 修改密码：mysqladmin -u root -p password
+mysqladmin -u root -p asdfg12345
 
 登录： mysql -u root -p
+
+./mysql -removie
+./mysql --initialize
+./mysql --initialize-insecure
+./mysql -install
+ner start mysql
 
 
    [root@localhost src]# wget http://repo.mysql.com/mysql57-community-release-el7-8.noarch.rpm 
@@ -82,3 +89,6 @@ spring:
   datasource:
     druid:
       url: jdbc:mysql://lqcode.com:3306/player?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8
+
+
+CURRENT_TIMESTAMP
