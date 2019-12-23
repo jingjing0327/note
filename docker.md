@@ -152,6 +152,9 @@ php安装扩展：zip
 apt-get install -y --no-install-recommends libzip-dev 
 docker-php-ext-install -j$(nproc) zip
 
+php安装扩展：mysqli
+cd /usr/local/bin
+./docker-php-ext-install mysqli
 
 # httpd
 docker run --name httpd -d --restart always -p 81:80 -v /docker/httpd/html:/var/www/html -v /docker/httpd/logs:/etc/httpd/logs httpd

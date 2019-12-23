@@ -114,3 +114,12 @@ location /player/{
 
 
 dstat
+
+
+nginx权限问题failed(13:Permission denied)
+#user  nobody;
+user root;
+worker_processes  1;
+===========================
+
+
