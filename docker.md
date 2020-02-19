@@ -161,5 +161,12 @@ docker run --name httpd -d --restart always -p 81:80 -v /docker/httpd/html:/var/
 
 https://blog.csdn.net/bingzhongdehuoyan/article/details/79424340
 
+<<<<<<< HEAD
 failed (13: Permission denied)
 user root;
+=======
+
+
+docker 权限问题
+docker exec -u root -it 9cd0966e1a81 bash
+>>>>>>> 72f318662912cb023a4522a4b2f39901e4265be8
