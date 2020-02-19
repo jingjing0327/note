@@ -160,3 +160,6 @@ cd /usr/local/bin
 docker run --name httpd -d --restart always -p 81:80 -v /docker/httpd/html:/var/www/html -v /docker/httpd/logs:/etc/httpd/logs httpd
 
 https://blog.csdn.net/bingzhongdehuoyan/article/details/79424340
+
+failed (13: Permission denied)
+user root;
