@@ -165,3 +165,7 @@ https://blog.csdn.net/bingzhongdehuoyan/article/details/79424340
 
 docker 权限问题
 docker exec -u root -it 9cd0966e1a81 bash
+
+cat /var/jenkins_home/secrets/initialAdminPassword
+
+docker run --name jenkins -p 8037:8080 -p 50000:50000 -v /root/docker/jenkins:/var/jenkins_home  -d  jenkins/jenkins
