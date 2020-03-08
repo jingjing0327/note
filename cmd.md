@@ -1,4 +1,5 @@
 chmod -R 777 html
+chmod 777 -R ./maccms10
 
 sudo ps -e |grep ssh
 
