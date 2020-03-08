@@ -134,8 +134,22 @@ public class ValidList<E> {
 
 使用类去包裹一下，@Valid只能验证类
 
+
+
+System.out::println
+
+实用MyBatisPlus插件开发，可以减少些很多代码
+
+实用Lombok插件开发，减少些实体类的代码
+
+@RunWith
+
+乐观锁
+悲观锁
+
+=======
 二级缓存
 
 poi
 
-jdbc:mysql://zaojiao.net:3307/luojigou_mall?serverTimezone=UTC&serverTimezone=Asia/Shanghai
+

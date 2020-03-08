@@ -12,3 +12,9 @@ ssh-keygen -t rsa -C "liqiong456@126.com"
 
 
 git config --global credential.helper store
+
+
+.gitignore 忽略文件没有作用
+git rm -r --cached .
+git add .
+git commit -m 'update .gitignore'
