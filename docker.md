@@ -169,4 +169,11 @@ user root;
 
 docker 权限问题
 docker exec -u root -it 9cd0966e1a81 bash
+<<<<<<< HEAD
+
+cat /var/jenkins_home/secrets/initialAdminPassword
+
+docker run --name jenkins -p 8037:8080 -p 50000:50000 -v /root/docker/jenkins:/var/jenkins_home  -d  jenkins/jenkins
+=======
 >>>>>>> 72f318662912cb023a4522a4b2f39901e4265be8
+>>>>>>> 05ab39b4a292d698cda8e36b6fc98800fa849434
