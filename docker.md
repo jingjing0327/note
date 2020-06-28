@@ -128,6 +128,28 @@ vim www.conf
 security.limit_extensions = .html .htm .php .js .css .jpg .jpeg .gif .png
 
 
+================================
+ 如果css显示text/html nginx，配置如下
+ server{
+        listen       80;
+        server_name  bbs.lqcode.cn;
+        location ~ \.php$ {
+            root           /root/php/www;
+            fastcgi_pass   127.0.0.1:9002;
+            fastcgi_index  index.php;
+            fastcgi_param  SCRIPT_FILENAME /var/www/html/$fastcgi_script_name;
+            include        fastcgi_params;
+        }
+        
+        location / {
+            root   /root/php/www;
+            index  index.php index.html index.htm;
+        }
+    }
+================================
+
+
+
 php docker安装gd库扩展
 
 apt update  #更新软件源

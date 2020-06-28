@@ -17,7 +17,7 @@ def getAjaxToken(nu,key):
 if __name__ == '__main__':
 	nu="SF1163107009254"
 	# nu="YT2066479734282"
-	strTime,token = getAjaxToken(nu,'1ec37a7b64060211662aae3f8b1de9d5');
+	strTime,token = getAjaxToken(nu,'e67a8c466afd64b88dcc327e5a36a5b1');
 	xx="https://open.onebox.so.com/api/getkuaidismart?com=&nu="+nu+"&time="+str(strTime)+"&token="+token
 	print(xx)
 
