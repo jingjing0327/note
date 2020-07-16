@@ -5,6 +5,13 @@ systemctl start docker
 
 ### docker仓库 https://hub.docker.com
 
+docker login
+docker push hehedage/wx_gzh_task:latest
+
+docker build -t hehedage/wx_gzh_task:latest .
+
+docker exec -it server_install_tc_hdb_server_api_1_1 /bin/sh
+
 # docker in install mysql
 	docker pull mysql
 	cmd docker pull mysql:tag
@@ -16,7 +23,7 @@ systemctl start docker
 	docker images
 
 # 删除指定的本地镜像
-	docker rm image-id
+	docker rmi image-id
 
 # 运行
 	docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql:tag
@@ -28,7 +35,7 @@ systemctl start docker
 # 停止
 	docker stop container-name/container-id
 # 删除
-	docker rm container-id
+	docker rmi container-id
 # 端口映射
 	-p 3307:3306 ----3307是本机的端口，3306是docker的端口
 # 容器日志

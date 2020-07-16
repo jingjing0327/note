@@ -1,6 +1,7 @@
 import urllib.request
 import time
 import hashlib
+import sys
 
 def get_data(url):
 	req=urllib.request.Request(url)
@@ -14,11 +15,15 @@ def getAjaxToken(nu,key):
 	token=hashlib.md5(params.encode(encoding='UTF-8')).hexdigest()
 	return strTime,token
 
+
 if __name__ == '__main__':
-	nu="SF1163107009254"
+	key=sys.argv[0]
+	nu=sys.argv[1]
+	# nu="SF1163107009254"
 	# nu="YT2066479734282"
-	strTime,token = getAjaxToken(nu,'e67a8c466afd64b88dcc327e5a36a5b1');
+	strTime,token = getAjaxToken(nu,key);
 	xx="https://open.onebox.so.com/api/getkuaidismart?com=&nu="+nu+"&time="+str(strTime)+"&token="+token
 	print(xx)
+
 
 
