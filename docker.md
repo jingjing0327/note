@@ -123,6 +123,11 @@ docker run --name myphp7 -p 9002:9000 -v /root/php/www/:/var/www/html/ --privile
 	        fastcgi_param  SCRIPT_FILENAME /var/www/html/$fastcgi_script_name;
 	        include        fastcgi_params;
 	    }
+	    //静态文件
+	    location ~ ^/(assets|images|javascript|js|css|flash|media|static|public)/ {
+	    	root           /root/php/www/;
+	    	expires 		30d;
+    	}
 	}
 解释：root  /root/php/www;  为本机地址
 fastcgi_pass   127.0.0.1:9001;  php 端口地址
