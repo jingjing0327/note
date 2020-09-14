@@ -212,4 +212,4 @@ docker run --name jenkins -p 8037:8080 -p 50000:50000 -v /root/docker/jenkins:/v
 
 
 
- docker run --name official_003 -p 32802:32802 -itd centos /bin/bash
+ docker run --name official -p 32802:32802 -itd centos /bin/bash
