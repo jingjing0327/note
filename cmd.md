@@ -123,4 +123,5 @@ user root;
 worker_processes  1;
 ===========================
 
-
+android 当前运行的activity
+adb shell dumpsys activity | findstr “mResume”
