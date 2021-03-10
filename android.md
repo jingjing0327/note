@@ -201,3 +201,35 @@ popupwindow_enter.xml
 
 notification 收起状态栏
 sendBroadcast(new Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS));
+
+
+
+
+
+
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:shape="rectangle">
+
+    <corners android:radius="5dp"/>
+
+    <solid android:color="#FFD301"/>
+
+</shape>
+
+在xml中给Button设置android:background="@drawable/shape" 发现不生效，颜色依然是蓝紫色
+
+！！！！！！！！！！
+
+解决：
+
+在res/values/themes.xml 中：
+
+parent="Theme.MaterialComponents.DayNight.DarkActionBar" 修改为
+
+parent="Theme.MaterialComponents.DayNight.DarkActionBar.Bridge" 即可！！
+
+作者：阿猫和鱼
+链接：https://www.jianshu.com/p/d122dc29c130
+来源：简书
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
