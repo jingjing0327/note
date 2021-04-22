@@ -8,6 +8,8 @@ leak relu 激活
 循环神经网络
 
 
+object detection tensorflow zoo
+https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/tf2_detection_zoo.md
 
 python3 generate_tfrecord.py --csv_input=images/train_labels.csv --image_dir=images/train --output_path=train.record
 
@@ -16,8 +18,20 @@ python3 generate_tfrecord.py --csv_input=images/test_labels.csv --image_dir=imag
 
 python3 model_main_tf2.py --pipeline_config_path=training/ssd_efficientdet_d0_512x512_coco17_tpu-8.config --model_dir=training --alsologtostderr
 
+python3 model_main_tf2.py --pipeline_config_path=training/ssd_mobilenet_v2_fpnlite_640x640_coco17_tpu-8.config --model_dir=training --alsologtostderr
+
+
+python model_main_tf2.py --pipeline_config_path=training/ssd_efficientdet_d0_512x512_coco17_tpu-8.config --model_dir=research/object_detection/training --alsologtostderr
 
 
 
-python3 model_main_tf2.py --pipeline_config_path=training/ssd_efficientdet_d0_512x512_coco17_tpu-8.config --model_dir=research/object_detection/training --alsologtostderr
 
+!unzip '/content/drive/My Drive/tf2/object_detection.zip' -d '/content/drive/My Drive/tf2/'
+
+出现这个error
+ImportError: cannot import name 'string_int_label_map_pb2' from 'object_detection.protos'
+下载整个
+https://github.com/protocolbuffers/protobuf/releases
+在object_detection运行这个
+"protoc.exe" object_detection/protos/*.proto --python_out=.
+解决
