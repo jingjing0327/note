@@ -24,19 +24,122 @@ python3 model_main_tf2.py --pipeline_config_path=training/ssd_mobilenet_v2_fpnli
 python model_main_tf2.py --pipeline_config_path=training/ssd_efficientdet_d0_512x512_coco17_tpu-8.config --model_dir=research/object_detection/training --alsologtostderr
 
 
+##问题总结
+
+	!unzip '/content/drive/My Drive/tf2/object_detection.zip' -d '/content/drive/My Drive/tf2/'
+
+	出现这个error
+	ImportError: cannot import name 'string_int_label_map_pb2' from 'object_detection.protos'
+	下载整个
+	https://github.com/protocolbuffers/protobuf/releases
+	在object_detection运行这个
+	"protoc.exe" object_detection/protos/*.proto --python_out=.
+	解决
 
 
-!unzip '/content/drive/My Drive/tf2/object_detection.zip' -d '/content/drive/My Drive/tf2/'
+##安装Miniconda
+	https://docs.conda.io/en/latest/miniconda.html
 
-出现这个error
-ImportError: cannot import name 'string_int_label_map_pb2' from 'object_detection.protos'
-下载整个
-https://github.com/protocolbuffers/protobuf/releases
-在object_detection运行这个
-"protoc.exe" object_detection/protos/*.proto --python_out=.
-解决
+	conda下安装插件
+	注意：如果需要安装GPU版本，需要安装对应的cuDNN、CUDA
+	查看地址如下：
+	https://tensorflow.google.cn/install/source?hl=zh_cn#tested_build_configurations
+
+	pip install tensorflow
+	conda install cudatoolkit
+	conda install cudnn
+
+##运行学习命令
+	下载tensorflow官方demo
+	https://github.com/tensorflow/models
+
+	安装labelImg
+	https://github.com/tzutalin/labelImg
+	这个是把需要识别的物体框出来，然后填写出ClassName
+
+	mkdir models-master/research/object_detection/images创建test、train 分别放置需要训练的图片和需要测试的图片
+	touch class-names.txt 把className写进去
+
+	下载
+	https://github.com/jingjing0327/widows-object-detection-setup
+	解压出来之后，把generate_labelmap.py、generate_tfrecord、xml_to_csv.py复制到models-master/research/object_detection
+
+	以此执行：
+	1、python xml_to_csv.py (生成test.csv、train.csv)
+	2、python generate_tfrecord.py --csv_input=images/train_labels.csv --image_dir=images/train --output_path=train.record (生成train.record)
+	3、python generate_tfrecord.py --csv_input=images/test_labels.csv --image_dir=images/test --output_path=test.record (生成test.record)
+	4、python generate_labelmap.py (生成labelmap.pbtxt)
+
+
+	下载google预编译模型
+	google搜索关键字（object detection tensorflow zoo）
+	https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/tf2_detection_zoo.md
+	下载model
+	复制到models-master/research/object_detection解压
+
+	到models-master/research/object_detection/configs/tf2/*.config
+	找到对应的model的config配置文件 复制 到models-master/research/object_detection/images里面
+
+	打开修改
+	model
+		ssd
+			num_classes:有几个class就写几
+
+	train_config
+		fine_tune_checkpoint:"efficientdet_d0_coco17_tpu-32/checkpoint/ckpt-0"
+		batch_size:4
+		optimizer
+			momentum_optimizer
+				cosine_decay_learning_rate
+					warmup_learning_rate: .0001
+	train_input_reader
+		label_map_path:"images/labelmap.pbtxt"
+		tr_record_input_reader
+			input_path:train.record
+
+	eval_input_reader
+		label_map_path:"images/labelmap.pbtxt"
+		tr_record_input_reader
+			input_path:test.record
+
+##修改
+	tensorflow有个代码问题，运行会直接失败
+	修改方法：
+		在models-master/research/object_detection下新建object_detection
+		然后把除了images文件夹的所有文件，全部copy到新object_detection里面
+
+##创建training文件夹
+	把images里面的labelmap.pbtxt、xxx512x512.config复制到training里面
 
 
 
-conda install cudatoolkit=10.1
-conda install cudnn=7.6.5
+##运行命令
+	python3 model_main_tf2.py --pipeline_config_path=training/ssd_efficientdet_d0_512x512_coco17_tpu-8.config --model_dir=training --alsologtostderr
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
