@@ -115,31 +115,3 @@ python model_main_tf2.py --pipeline_config_path=training/ssd_efficientdet_d0_512
 
 ##运行命令
 	python3 model_main_tf2.py --pipeline_config_path=training/ssd_efficientdet_d0_512x512_coco17_tpu-8.config --model_dir=training --alsologtostderr
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
