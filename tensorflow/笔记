@@ -38,6 +38,7 @@ python model_main_tf2.py --pipeline_config_path=training/ssd_efficientdet_d0_512
 
 
 ##安装Miniconda
+	https://repo.anaconda.com/miniconda/
 	https://docs.conda.io/en/latest/miniconda.html
 
 	conda下安装插件
@@ -115,3 +116,6 @@ python model_main_tf2.py --pipeline_config_path=training/ssd_efficientdet_d0_512
 
 ##运行命令
 	python3 model_main_tf2.py --pipeline_config_path=training/ssd_efficientdet_d0_512x512_coco17_tpu-8.config --model_dir=training --alsologtostderr
+
+
+	python model_main_tf2.py --pipeline_config_path=training/pipeline.config --model_dir=training --alsologtostderr
