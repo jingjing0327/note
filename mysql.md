@@ -97,3 +97,7 @@ CURRENT_TIMESTAMP
 
 SELECT @@sql_mode;
 SET sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));
+
+
+total_price
+real_money
