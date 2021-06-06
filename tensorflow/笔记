@@ -53,6 +53,10 @@ python model_main_tf2.py --pipeline_config_path=training/ssd_efficientdet_d0_512
 	conda install cudatoolkit
 	conda install cudnn
 
+	conda install cudatoolkit=10.1
+	conda install cudnn=7.6.5
+	pip install tensorflow==2.3.0
+
 ##运行学习命令
 	下载tensorflow官方demo
 	https://github.com/tensorflow/models
@@ -79,7 +83,7 @@ python model_main_tf2.py --pipeline_config_path=training/ssd_efficientdet_d0_512
 	google搜索关键字（object detection tensorflow zoo）
 	https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/tf2_detection_zoo.md
 	下载model
-	复制到models-master/research/object_detection解压
+	复制到models-master/research/object_detection/解压
 
 	到models-master/research/object_detection/configs/tf2/*.config
 	找到对应的model的config配置文件 复制 到models-master/research/object_detection/images里面
@@ -120,6 +124,14 @@ python model_main_tf2.py --pipeline_config_path=training/ssd_efficientdet_d0_512
 
 ##运行训练命令
 	python3 model_main_tf2.py --pipeline_config_path=training/ssd_efficientdet_d0_512x512_coco17_tpu-8.config --model_dir=training --alsologtostderr
+	python3 model_main_tf2.py --pipeline_config_path=training/ssd_mobilenet_v1_fpn_640x640_coco17_tpu-8.config --model_dir=training --alsologtostderr
+
+	python model_main_tf2.py --pipeline_config_path=training/ssd_mobilenet_v2_320x320_coco17_tpu-8.config --model_dir=training --alsologtostderr
+	
+
+	python model_main_tf2.py --pipeline_config_path=training/ssd_mobilenet_v1_fpn_640x640_coco17_tpu-8.config --model_dir=training --alsologtostderr
+
+
 
 
 	python model_main_tf2.py --pipeline_config_path=training/pipeline.config --model_dir=training --alsologtostderr
@@ -127,5 +139,6 @@ python model_main_tf2.py --pipeline_config_path=training/ssd_efficientdet_d0_512
 
 ##导出model命令
 	python exporter_main_v2.py --trained_checkpoint_dir=training --pipeline_config_path=training/pipeline.config --output_directory inference_graph
+	python3 exporter_main_v2.py --trained_checkpoint_dir=training --pipeline_config_path=training/ssd_mobilenet_v1_fpn_640x640_coco17_tpu-8.config --output_directory inference_graph
 
 
