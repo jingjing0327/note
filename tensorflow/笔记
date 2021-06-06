@@ -56,6 +56,7 @@ python model_main_tf2.py --pipeline_config_path=training/ssd_efficientdet_d0_512
 	conda install cudatoolkit=10.1
 	conda install cudnn=7.6.5
 	pip install tensorflow-gpu==2.3.0
+	注意：先安装tf-models-official 然后卸载tensorflow，在安装自己想要的tensorflow版本
 
 ##运行学习命令
 	下载tensorflow官方demo
