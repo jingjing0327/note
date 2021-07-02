@@ -133,9 +133,10 @@ python model_main_tf2.py --pipeline_config_path=training/ssd_efficientdet_d0_512
 	python model_main_tf2.py --pipeline_config_path=training/ssd_mobilenet_v1_fpn_640x640_coco17_tpu-8.config --model_dir=training --alsologtostderr
 
 
-
-
 	python model_main_tf2.py --pipeline_config_path=training/pipeline.config --model_dir=training --alsologtostderr
+
+
+	D:\tensorflow-lite\models-master\research\object_detection>tensorboard --logdir=training/train
 
 
 ##导出model命令
@@ -143,3 +144,40 @@ python model_main_tf2.py --pipeline_config_path=training/ssd_efficientdet_d0_512
 	python3 exporter_main_v2.py --trained_checkpoint_dir=training --pipeline_config_path=training/ssd_mobilenet_v1_fpn_640x640_coco17_tpu-8.config --output_directory inference_graph
 
 
+	python exporter_main_v2.py --trained_checkpoint_dir=training --pipeline_config_path=training/ssd_mobilenet_v2_320x320_coco17_tpu-8.config --output_directory inference_graph
+
+
+
+
+## tflite
+	step 1 导出
+	python object_detection/export_tflite_graph_tf2.py \
+    --pipeline_config_path path/to/ssd_model/pipeline.config \
+    --trained_checkpoint_dir path/to/ssd_model/checkpoint \
+    --output_directory path/to/exported_model_directory
+
+
+    python export_tflite_graph_tf2.py --pipeline_config_path training/ssd_mobilenet_v2_320x320_coco17_tpu-8.config --trained_checkpoint_dir training --output_directory exported_tflite_002
+
+
+
+    python export_tflite_graph_tf2.py --pipeline_config_path ssd_mobilenet_v2_320x320_coco17_tpu-8/pipeline.config --trained_checkpoint_dir ssd_mobilenet_v2_320x320_coco17_tpu-8/checkpoint --output_directory exported_tflite
+
+
+
+    step 2 转换
+    tflite_convert --output_file tflite/od_model.tflite --saved_model_dir exported_tflite_002/saved_model
+
+
+    python metadata_writer_for_image_classifier.py --model_file=tflite/od_model.tflite  --label_file=tflite/class-names.txt --export_directory=model_with_metadata
+
+
+
+    step 3 加元数据
+	from tflite_support.metadata_writers import object_detector
+	from tflite_support.metadata_writers import writer_utils
+
+	writer = object_detector.MetadataWriter.create_for_inference(
+	    writer_utils.load_file("od_model.tflite"), input_norm_mean=[0],
+	    input_norm_std=[255], label_file_paths=["class-names.txt"])
+	writer_utils.save_file(writer.populate(), "mmm.tflite")
