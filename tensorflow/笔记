@@ -181,3 +181,14 @@ python model_main_tf2.py --pipeline_config_path=training/ssd_efficientdet_d0_512
 	    writer_utils.load_file("od_model.tflite"), input_norm_mean=[0],
 	    input_norm_std=[255], label_file_paths=["class-names.txt"])
 	writer_utils.save_file(writer.populate(), "mmm.tflite")
+
+
+##测试
+
+tflite测试
+python tflite_image_test.py --modeldir=tflite --image=images/test/IMG_20210414_161803.jpg
+
+
+
+pb测试
+python pb_image_test.py --model=inference_graph\saved_model --labelmap=inference_graph\saved_model\labelmap.pbtxt  --image_path=images\test\IMG_20210414_161803.jpg
