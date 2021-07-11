@@ -2,4 +2,5 @@
 
 余额 
 现金支付 
-
+from skimage.metrics import peak_signal_noise_ratio
+# from skimage.measure import compare_psnr
